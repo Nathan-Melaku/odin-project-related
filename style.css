@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    width: 960px;
+    height: 960px;
+    border-style: dashed;  
+    display: grid;  
+}
