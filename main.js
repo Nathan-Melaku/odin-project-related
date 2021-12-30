@@ -148,6 +148,7 @@ function operatorPressed(op, object) {
 function equalPressed(object){
     if(object.operator){
         object.operand2 = Number(object.value); // recieve op 2
+        const val = object.operand1;
         object.operand1 = operate(object.operator, 
             object.operand1,object.operand2); // put the result in op 1
       
@@ -156,7 +157,7 @@ function equalPressed(object){
             clear(object);
         } else {
             object.value = object.operand1.toString(); // store result
-            object.history = `${object.operand1} ${object.operator} ${object.operand2} = `;
+            object.history = `${val} ${object.operator} ${object.operand2} = `;
             object.operator = '';
             isfirst = true;
         }
