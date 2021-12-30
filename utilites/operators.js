@@ -1,14 +1,14 @@
 
 function add(a, b) {
-    return a + b;
+    return round(a + b);
 }
 
 function subtract(a, b) {
-    return a - b;
+    return round(a - b);
 }
 
 function multiply(a, b) {
-    return a * b;
+    return round(a * b);
 }
 
 // if rounding is done at validation don't worry about rounding
@@ -16,19 +16,29 @@ function divide(a, b) {
     return Math.round(a * 100.0/ b)/100;
 }
 
+function percent(a, b) {
+    return Math.round((divide(a, 100) * b) * 100)/100;
+}
+
+function round(a) {
+    return Math.round((a * 100))/100
+}
+
 function operate(operator, a, b) {
     switch (operator) {
-        case 'add': 
+        case '+': 
             return add(a, b);
-        case 'subtract': 
+        case '-': 
             return subtract(a,b);
-        case 'multiply':
+        case '*':
             return multiply(a,b);
-        case 'divide':
+        case '/':
             return divide(a,b);
+        case '%':
+            return percent(a,b);
         default:
             return null;
     }
 }
 
-module.exports =  {add , subtract , multiply, divide, operate};
+export {add , subtract , multiply, divide, operate, percent};
